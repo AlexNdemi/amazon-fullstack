@@ -1,0 +1,18 @@
+.sign-up-container{
+  margin-top: 1.5em;
+}
+.sign-up-link{
+  display: inline-block;
+  margin-inline:auto;
+  margin-block:.5em;
+  text-decoration: none;
+  padding:.5em 1em;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 0 2px 0 rgba(213, 217, 217, 0.5);
+  border-radius: 8px;
+}
+.sign-up-link:hover{
+  background-color: hsl(0, 0%, 3%);
+}

@@ -1,0 +1,167 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+*,*::before,*::after{
+  box-sizing: border-box;
+}
+:root{
+  --clr-success: hsl(143, 100%, 26%);
+    --clr-warning: hsl(43, 100%, 66%);
+    --clr-error: hsl(348, 55%, 49%);
+    --clr-accent-100:hsl(204, 88%, 53%);
+}
+html, body {
+  min-height: 100%; /* Ensures the full height is available for the container */
+
+  overflow: auto; /* Ensure overflow can scroll */
+}
+.header{
+  margin-bottom: 0.5em;
+  font-weight:normal;
+  font-size:1.75rem;
+}
+.full-screen-container{
+  padding-top: 0.125em;
+  padding-bottom: 1em;
+  min-height: 100vh;
+  width:100vw;
+  display: flex;
+  gap:.125em;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #111;
+  color:#fff;
+  font-family: sans-serif;
+}
+.container{
+  --_padding:2px;
+  --_max-width:350px;
+  width:min(var(--_max-width),100% - (var(--_padding) * 2));
+  margin-inline: auto;
+  
+}
+.form-container{
+  --_padding:2px;
+  --_max-width:350px;
+  padding:10px 12.75px;
+  width:min(var(--_max-width),100% - (var(--_padding) * 2));
+  
+  box-shadow: 0 0 2px 0 rgba(213, 217, 217, 0.5);
+  border-radius: 4px;
+  
+}
+.logo-container{
+  align-self: center;
+  scale:0.5;
+}
+.logo{
+ display:block;
+ margin-inline:auto;
+
+}
+.form-container>form{
+  display: flex;
+  gap:1rem;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.input-group{
+  display:flex;
+  flex-direction: column;
+  gap:6px;
+  font-size:0.75rem;
+  font-weight:bold;
+}
+.input-group input{
+  font-size: 0.9375rem;
+  padding:.75em;
+  border-radius: 5px;
+  border:none;
+  outline: 3px solid var(--clr-warning);
+}
+.input-group .msg{
+  display:none;
+}
+.input-group.error input:not(:placeholder-shown),input:not(:placeholder-shown):invalid{
+  outline-color: var(--clr-error);
+}
+.input-group.success input:not(:placeholder-shown),
+input:not(:placeholder-shown):valid
+{
+  outline-color: var(--clr-success);
+}
+.input-group.error .msg{
+  display:block;
+  color:var(--clr-error)
+}
+
+
+.hr-text {
+  line-height: 1em;
+  position: relative;
+  outline: 0;
+  border: 0;
+  color: black;
+  text-align: center;
+  height: 1.5em;
+  opacity: 0.5;
+  &:before {
+    content: '';
+    /* use the linear-gradient for the fading effect */
+    /* use a solid background color for a solid bar */
+    background: linear-gradient(to right, transparent, #818078, transparent);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+  }
+  &:after {
+    content: attr(data-content);
+    position: relative;
+    display: inline-block;
+    color: black;
+    font-size: 0.8125rem;
+    padding: 0 .5em;
+    line-height: 1.5em;
+    /* this is really the only tricky part, you need to specify the background color of the container element... */
+    color: rgba(213, 217, 217, 0.9);
+    background-color: #111;
+  }
+}
+button[class*="continue"]{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-radius: 8px;
+  margin-top: 11px;
+  margin-bottom: 15px;
+  color: rgb(33, 33, 33);
+  pointer-events: none;
+  border: 1px solid rgb(252, 210, 0);
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  opacity:0.5;
+  pointer-events: none;
+  background-color: rgb(255, 216, 60)
+}
+form:valid button[class*='continue']:not(:disabled){
+  opacity: 1;
+  box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+  background-color:rgb(255, 216, 10);
+  pointer-events: auto;
+}
+form:valid button[class*='continue']:not(:disabled):hover{
+  background-color: rgb(247, 202, 0);
+  border: 1px solid rgb(242, 194, 0);
+  cursor: pointer;
+}
+
+form:invalid button{
+  opacity:0.5;
+  pointer-events: none;
+  background-color: rgb(255, 216, 60);
+}
