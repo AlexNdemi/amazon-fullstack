@@ -49,6 +49,39 @@ products.forEach((product) => {
   </div>
   `;
 });
+// const ACCOUNT_DETAILS = document.querySelector(".account-details");
+// console.log(ACCOUNT_DETAILS);
+// ACCOUNT_DETAILS.addEventListener("mouseover",function(e){
+//  const target = e.target;
+//  console.log(target);
+//  if (target.closest('.account-details')){
+//   target.classList.add("active");
+
+//  }
+// })
+const ACCOUNT_DETAILS = document.querySelector(".account-details");
+
+// Toggle on hover, focus, or click
+function showDetails() {
+  ACCOUNT_DETAILS.classList.add("active");
+}
+
+function hideDetails() {
+  ACCOUNT_DETAILS.classList.remove("active");
+}
+
+// Show on hover (desktop) and focus (keyboard navigation)
+ACCOUNT_DETAILS.addEventListener("mouseover", showDetails);
+ACCOUNT_DETAILS.addEventListener("focusin", showDetails);
+
+// Hide on mouse out (desktop) and blur (keyboard navigation)
+ACCOUNT_DETAILS.addEventListener("mouseout", hideDetails);
+ACCOUNT_DETAILS.addEventListener("focusout", hideDetails);
+
+// Toggle on click (for mobile)
+ACCOUNT_DETAILS.addEventListener("click", function () {
+  ACCOUNT_DETAILS.classList.toggle("active");
+});
 
 const CART_QUANTITY_HTML = document.querySelector('.cart-quantity');
 const PRODUCT_GRID = document.querySelector('.js-product-grid');
@@ -86,3 +119,4 @@ function updateCartQuantityHtml() {
 
 // Initial update of the cart quantity
 updateCartQuantityHtml();
+

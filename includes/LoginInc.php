@@ -6,7 +6,7 @@ if(!isset($_POST["sign-in"])){
   header("location:../index.php");
   exit();
 }
-$emailOrPhoneNumber = $_POST["emailOrPhoneNo"];
+$emailOrPhoneNumber = trim($_POST["emailOrPhoneNo"]);
 $password=$_POST["pswd"];
 
 $logInController = new LogInController($emailOrPhoneNumber,$password);

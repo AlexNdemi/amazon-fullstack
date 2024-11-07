@@ -30,3 +30,7 @@ function validateEmailOrPhoneNumber(emailOrPhoneNoValue) {
   EMAIL_OR_PHONENO_INPUT_DIV.classList.add('error');
   ERROR_MESSAGE.textContent = "Invalid email or phonenumber";
 }
+window.addEventListener("load", () => {
+  const EMAIL_OR_PHONENO_VALUE = EMAIL_OR_PHONENO_INPUT.value.trim();
+    validateEmailOrPhoneNumber(EMAIL_OR_PHONENO_VALUE);
+});

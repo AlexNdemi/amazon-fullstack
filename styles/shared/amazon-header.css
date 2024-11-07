@@ -3,10 +3,16 @@
   color: white;
   padding-left: 15px;
   padding-right: 15px;
-
-  display: flex;
-  align-items: center;
+  display:grid;
+  grid-template-columns:180px minmax(0,800px) 220px ;
+  row-gap:10px;
+  grid-template-areas:
+  "logo-area search-area account-details-area";
   justify-content: space-between;
+  align-items: center;
+  /* display: flex;
+  align-items: center;
+  justify-content: space-between; */
   gap:0.5rem;
 
   position: fixed;
@@ -15,17 +21,19 @@
   right: 0;
   height: 70px;
 }
+.amazon-header *{
+  margin: 0;
+}
 
 .amazon-header-left-section {
-  width: 180px;
-  background-color: blueviolet;
+  /* width: 180px; */
+  grid-area: logo-area;
 }
 .account-details{
   display:grid;
   padding-top:0.5em;
   border: 1px solid rgba(0, 0, 0, 0);
   margin:0;
-
 }
 .account-details .account{
   margin-top:-0.25em;
@@ -39,6 +47,52 @@
   white-space: nowrap;
   margin-top: auto;
   font-weight: 100;
+}
+.account-details .account-more-details{
+  display:none;
+  position: absolute;
+  top:62px;
+  right:0;
+  height: 60px;
+  width:250px;
+  background-color: #fff;
+  padding:0.5em;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 3px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+}
+.account-details .account-more-details::after{
+  content:"";
+  position: fixed;
+  z-index: -1;
+  inset:0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6));
+}
+.account-details:hover .account-more-details,.account-details:focus-within .account-more-details{
+  display:flex;
+}
+.account-details a{
+  color: rgb(33, 33, 33);
+  background-color: rgb(255, 216, 20);
+  border: 1px solid rgb(252, 210, 0);
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+  width:200px;
+  padding: 4px 8px;
+  text-decoration: none;
+  text-align: center;
+}
+.account-details a:hover{
+  background-color: rgb(247, 202, 0);
+  border: 1px solid rgb(242, 194, 0);
+}
+.account-details a:active{
+  background: rgb(255, 216, 20);
+  border-color: rgb(252, 210, 0);
+  box-shadow: none;
 }
 @media (max-width: 800px) {
   .amazon-header-left-section {
@@ -78,13 +132,26 @@
     height: 35px;
     margin-top: 5px;
   }
+  .amazon-header {
+    grid-template-columns:1fr 1fr ;
+    column-gap:10px;
+    row-gap: 10px;
+    height: 120px;
+    grid-template-areas:
+    "logo-area  account-details-area"
+    "search-area search-area";
+    grid-template-rows: auto auto;
+    align-content: start;
+  }
+
 }
 
 .amazon-header-middle-section {
-  flex: 1;
+  /* flex: 1;
   max-width: 600px;
   margin-left: 10px;
-  margin-right: 10px;
+  margin-right: 10px; */
+  grid-area:search-area;
   display: flex;
 }
 
@@ -118,8 +185,9 @@
 }
 
 .amazon-header-right-section {
-  width: 220px;
-  flex-shrink: 0;
+  /* width: 220px;
+  flex-shrink: 0; */
+  grid-area: account-details-area;
   display: flex;
   justify-content: space-around;
   gap:0.125em;
@@ -163,8 +231,8 @@
   font-weight: 700;
 
   position: absolute;
-  top: 4px;
-  left: 22px;
+  top: 10px;
+  left: 17px;
   
   width: 26px;
   text-align: center;

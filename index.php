@@ -3,6 +3,7 @@ if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }
 $name = $_SESSION["username"] ?? "Sign In";
+$link = $_SESSION["username"] ? '<a href="includes/LogoutInc.php">sign out</a>':"<a href=\"sign-in.php\">sign in</a>";
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,13 +40,19 @@ $name = $_SESSION["username"] ?? "Sign In";
       </div>
 
       <div class="amazon-header-right-section">
-        <?php echo "<div class=\"account-details \"><p class=\"name\">hello {$name}</p>
-        <p class=\"account\">Account</p></div>";?>
+        <div class="account-details">
+          <p class="name">Hello, <?php echo"{$name}";?></p>
+          <p class="account">Account</p>
+          <div class="account-more-details-wrapper">
+            <div class ="account-more-details">
+                  <?php echo"{$link}";?></p>
+            </div>
+          </div>
+        </div>
         <a class="orders-link header-link" href="orders.html">
           <span class="returns-text">Returns</span>
           <span class="orders-text">& Orders</span>
         </a>
-
         <a class="cart-link header-link" href="checkout.php">
           <img class="cart-icon" src="images/icons/cart-icon.png">
           <div class="cart-quantity"></div>
