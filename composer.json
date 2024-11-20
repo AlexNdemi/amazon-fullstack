@@ -1,0 +1,18 @@
+{
+    "name": "alexkiirundemi/loginpage",
+    "authors": [
+        {
+            "name": "AlexNdemi",
+            "email": "ndemikiiru@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+          "controllers\\":"controllers/",
+          "helpers\\":"helpers/", 
+          "includes\\":"includes/",
+          "models\\":"models/"
+        }
+    }
+}
